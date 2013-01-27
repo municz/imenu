@@ -1,4 +1,10 @@
 Imenu::Application.routes.draw do
+  resources :menus
+
+
+  resources :restaurants
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
