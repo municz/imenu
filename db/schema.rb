@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130127180401) do
+ActiveRecord::Schema.define(:version => 20130129141229) do
+
+  create_table "menus", :force => true do |t|
+    t.string   "name"
+    t.integer  "cenaStudent"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "menus_restaurants", :id => false, :force => true do |t|
+    t.integer "menu_id",       :null => false
+    t.integer "restaurant_id", :null => false
+    t.date    "date"
+  end
+
+  add_index "menus_restaurants", ["menu_id", "restaurant_id"], :name => "index_menus_restaurants_on_menu_id_and_restaurant_id"
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"

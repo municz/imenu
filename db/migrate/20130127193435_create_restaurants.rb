@@ -1,10 +1,13 @@
 class CreateRestaurants < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :restaurants do |t|
       t.string :name
-      t.integer :menu_id
 
       t.timestamps
     end
+  end
+  
+  def self.down
+    drop_table :restaurants
   end
 end
