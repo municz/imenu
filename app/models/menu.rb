@@ -11,5 +11,14 @@
 
 class Menu < ActiveRecord::Base
   attr_accessible :cenaStudent, :name
-  has_and_belongs_to_many :restaurants
+  has_many :restaurants, dependent: :destroy
+  
+  validates :cenaStudent, presence: true
+  validates :name, presence:true
+
+  def getAcademicMenus
+    restaurant = Restaurant.create("Academic Restaurant")
+  end
+
+
 end

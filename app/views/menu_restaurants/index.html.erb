@@ -1,0 +1,23 @@
+<h1>Listing menu_restaurants</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @menu_restaurants.each do |menu_restaurant| %>
+  <tr>
+    <td><%= menu_restaurant.date %></td>
+    <td><%= link_to 'Show', menu_restaurant %></td>
+    <td><%= link_to 'Edit', edit_menu_restaurant_path(menu_restaurant) %></td>
+    <td><%= link_to 'Destroy', menu_restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Menu restaurant', new_menu_restaurant_path %>

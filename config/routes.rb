@@ -1,4 +1,7 @@
 Imenu::Application.routes.draw do
+  resources :menu_restaurants
+
+
   #get "static_pages/home"
   match '/', to: 'static_pages#home'  
   match 'home', to: 'static_pages#home'
