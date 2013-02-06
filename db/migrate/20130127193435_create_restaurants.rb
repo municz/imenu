@@ -5,6 +5,9 @@ class CreateRestaurants < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    #populate db
+    Restaurant.create :name => "ACADEMIC restaurant"
   end
   
   def self.down

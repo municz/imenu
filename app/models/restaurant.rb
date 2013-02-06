@@ -11,7 +11,8 @@
 
 class Restaurant < ActiveRecord::Base
   attr_accessible :name
-  has_many :menus, dependent: :destroy
+  has_many :menu_restaurants
+  has_many :menus, :through => :menu_restaurants, dependent: :destroy
 
   validates :name, presence: true 
 

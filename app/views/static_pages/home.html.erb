@@ -1,4 +1,16 @@
 <% provide(:title, 'BRNO jídelníček') %>
-<h1>iMenu Jídelníček</h1>
-<p>The home page</p>
-<% Menu.getAcademicMenus %>
+<h1>Brno Jídelníček</h1>
+<h2><%= @restaurants.first.name %></h2>
+<table>
+  <tr>
+    <th>Menu</th>
+    <th>Cenastudent</th>
+  </tr>
+
+<% @menus.each do |menu| %>
+  <tr>
+    <td><%= menu.name %></td>
+    <td><%= menu.cenaStudent %></td>
+  </tr>
+<% end %>
+</table>

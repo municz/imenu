@@ -11,14 +11,11 @@
 
 class Menu < ActiveRecord::Base
   attr_accessible :cenaStudent, :name
-  has_many :restaurants, dependent: :destroy
+  has_many :menu_restaurants
+  has_many :restaurants, :through => :menu_restaurans, dependent: :destroy
   
   validates :cenaStudent, presence: true
+  validates_numericality_of :cenaStudent, :message => "Error: Price is not a number"
   validates :name, presence:true
-
-  def getAcademicMenus
-    restaurant = Restaurant.create("Academic Restaurant")
-  end
-
 
 end
