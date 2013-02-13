@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20130129141229) do
 
+  create_table "menu_restaurants", :id => false, :force => true do |t|
+    t.integer "menu_id",       :null => false
+    t.integer "restaurant_id", :null => false
+    t.date    "date"
+  end
+
+  add_index "menu_restaurants", ["menu_id", "restaurant_id", "date"], :name => "index_menu_restaurants_on_menu_id_and_restaurant_id_and_date", :unique => true
+  add_index "menu_restaurants", ["menu_id", "restaurant_id"], :name => "index_menu_restaurants_on_menu_id_and_restaurant_id"
+
   create_table "menus", :force => true do |t|
     t.string   "name"
     t.integer  "cenaStudent"
@@ -20,18 +29,14 @@ ActiveRecord::Schema.define(:version => 20130129141229) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "menus_restaurants", :id => false, :force => true do |t|
-    t.integer "menu_id",       :null => false
-    t.integer "restaurant_id", :null => false
-    t.date    "date"
-  end
-
-  add_index "menus_restaurants", ["menu_id", "restaurant_id"], :name => "index_menus_restaurants_on_menu_id_and_restaurant_id"
+  add_index "menus", ["name"], :name => "index_menus_on_name", :unique => true
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "restaurants", ["name"], :name => "index_restaurants_on_name", :unique => true
 
 end

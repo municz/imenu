@@ -1,0 +1,27 @@
+<% provide(:title, 'BRNO jídelníček') %>
+<h1>Brno Jídelníček</h1>
+<% @menuRestaurants.restaurants.each do |restaurant| %>
+  <h2><%= restaurant.name %></h2>
+  <table>
+    <tr>
+      <th>Menu</th>
+      <th>Cenastudent</th>
+    </tr>
+
+  <% restaurant.menu.each do |menu| %>
+    <tr>
+      <td><%= menu.menu.name %></td>
+      <td><%= menu.menu.cenaStudent/100 %> czk</td>
+      <td><%= menu.date  %></td>
+    </tr>
+  <% end %>
+
+  <% @menus.each do |menu| %>
+    <tr>
+      <td><%= menu.name %></td>
+      <td><%= menu.cenaStudent/100 %> czk</td> 
+      <td><%= menu.menu_restaurants[0].date  %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>

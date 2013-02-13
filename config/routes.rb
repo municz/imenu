@@ -1,15 +1,11 @@
 Imenu::Application.routes.draw do
+  resources :menus
+  resources :restaurants
   resources :menu_restaurants
-
 
   #get "static_pages/home"
   match '/', to: 'static_pages#home'  
   match 'home', to: 'static_pages#home'
-
-  resources :menus
-
-
-  resources :restaurants
 
 
   # The priority is based upon order of creation:

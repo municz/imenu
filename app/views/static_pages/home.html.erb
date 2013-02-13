@@ -1,16 +1,17 @@
 <% provide(:title, 'BRNO jídelníček') %>
 <h1>Brno Jídelníček</h1>
+<%# @menuRestaurants.restaurant.each do |restaurant| %>
 <h2><%= @restaurants.first.name %></h2>
-<table>
-  <tr>
-    <th>Menu</th>
-    <th>Cenastudent</th>
-  </tr>
-
-<% @menus.each do |menu| %>
-  <tr>
-    <td><%= menu.name %></td>
-    <td><%= menu.cenaStudent %></td>
-  </tr>
-<% end %>
+  <table class="table">
+    <tr>
+      <th>Menu</th>
+      <th>Cenastudent</th>
+    </tr>
+  <% @menuRestaurants.each do |menu| %>
+    <tr>
+      <td><%= menu.menu.name %></td>
+      <td><%= menu.menu.cenaStudent/100 %> czk</td>
+    </tr>
+  <% end %>
+<%# end %>
 </table>

@@ -6,11 +6,14 @@ class CreateRestaurants < ActiveRecord::Migration
       t.timestamps
     end
     
+    add_index :restaurants, :name, :unique => true
+    
     #populate db
     Restaurant.create :name => "ACADEMIC restaurant"
   end
   
   def self.down
+    remove_index :restaurants, :column => :name
     drop_table :restaurants
   end
 end

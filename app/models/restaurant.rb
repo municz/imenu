@@ -15,5 +15,5 @@ class Restaurant < ActiveRecord::Base
   has_many :menus, :through => :menu_restaurants, dependent: :destroy
 
   validates :name, presence: true 
-
+  validates_uniqueness_of :name
 end
