@@ -1,4 +1,5 @@
 class MenuRestaurantsController < ApplicationController
+=begin
   # GET /menu_restaurants
   # GET /menu_restaurants.json
   def index
@@ -80,4 +81,5 @@ class MenuRestaurantsController < ApplicationController
       format.json { head :no_content }
     end
   end
+=end
 end

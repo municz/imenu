@@ -1,11 +1,17 @@
 <% provide(:title, 'BRNO jídelníček') %>
 <h1>Brno Jídelníček</h1>
-<%# @menuRestaurants.restaurant.each do |restaurant| %>
-<h2><%= @restaurants.first.name %></h2>
+<ul class="nav nav-tabs">
+<% @restaurants.each do |restaurant| %>
+
+<li<%=" class=active" if restaurant.id.to_s == params['restaurant'] %>>
+  <%= link_to restaurant.name, "/"+restaurant.id.to_s+"/"+params['date'] %>
+</li>
+<% end %>
+</ul>
   <table class="table">
     <tr>
       <th>Menu</th>
-      <th>Cenastudent</th>
+      <th>Cena pro študenta</th>
     </tr>
   <% @menuRestaurants.each do |menu| %>
     <tr>
@@ -13,5 +19,5 @@
       <td><%= menu.menu.cenaStudent/100 %> czk</td>
     </tr>
   <% end %>
-<%# end %>
+
 </table>

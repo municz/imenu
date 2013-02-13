@@ -7,12 +7,12 @@
           <% if(params['date'].present?)
              date = Date.parse(params['date']) %>
           <li><%= link_to previous_business_day(previous_business_day(date)), 
-            "?date="+previous_business_day(previous_business_day(date)).to_s %></li>
-          <li><%= link_to previous_business_day(date) , "?date="+previous_business_day(date).to_s %></li>
-          <li class="active"><%= link_to date , "?date="+date.to_s %></li>
-          <li><%= link_to next_business_day(date) , "?date="+next_business_day(date).to_s %></li>
+            previous_business_day(previous_business_day(date)).to_s %></li>
+          <li><%= link_to previous_business_day(date) , previous_business_day(date).to_s %></li>
+          <li class="active"><%= link_to date , date.to_s %></li>
+          <li><%= link_to next_business_day(date) , next_business_day(date).to_s %></li>
           <li><%= link_to next_business_day(next_business_day(date)) , 
-            "?date="+next_business_day(next_business_day(date)).to_s %></li>
+            next_business_day(next_business_day(date)).to_s %></li>
           <% end %>
         </ul>
       </nav>

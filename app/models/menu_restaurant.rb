@@ -57,9 +57,9 @@ class MenuRestaurant < ActiveRecord::Base
 
       #get rid of extra newline characters
       page.gsub!(/[0-9]\n[0-9]/, ' ')
-      page.gsub!(/\n([a-zA-Z\(\)])/, '\1')
+      page.gsub!(/\n([a-zA-Zľšťžýéčúřěáí\(\)])/, '\1')
       page.gsub!(/[0-9]Pizza/, "Pizza")
-      page.gsub!(/[0-9]?[0-9]{1,3}g /,'')
+      page.gsub!(/[0-9]?(\s){0,2}[0-9]{1,3}(\s)?g /,' ')
 
 
       lines = page.split("\n")
@@ -111,14 +111,15 @@ class MenuRestaurant < ActiveRecord::Base
       #get rid of useless parts
       page["Polévky"] = '' 
       page["Obědy"] = ''
-      page["Minutky"] = ''   
+      page["Minutky"] = ''
+
+      
 
 
       #get rid of extra newline characters
       page.gsub!(/[0-9]\n[0-9]/, ' ')
-      page.gsub!(/\n([a-zA-Z\(\)])/, '\1')
-      page.gsub!(/[0-9]?[0-9]{1,3}g /,'')
-
+      page.gsub!(/\n([a-zA-Zľšťžýéčúřěáí\(\)])/, '\1')
+      page.gsub!(/[0-9]?(\s){0,2}[0-9]{1,3}(\s)?g /,' ')
 
       lines = page.split("\n")
       lines.each do |line|
@@ -174,8 +175,8 @@ class MenuRestaurant < ActiveRecord::Base
 
       #get rid of extra newline characters
       page.gsub!(/[0-9]\n[0-9]/, ' ')
-      page.gsub!(/\n([a-zA-Z\(\)])/, '\1')
-      page.gsub!(/[0-9]?[0-9]{1,3}g /,'')
+      page.gsub!(/\n([a-zA-Zľšťžýéčúřěáí\(\)])/, '\1')
+      page.gsub!(/[0-9]?(\s){0,2}[0-9]{1,3}(\s)?g /,' ')
 
 
       lines = page.split("\n")
@@ -235,9 +236,9 @@ class MenuRestaurant < ActiveRecord::Base
       
       #get rid of extra newline characters
       page.gsub!(/[0-9]\n[0-9]/, ' ')
-      page.gsub!(/\n([a-zA-Z\(\)])/, '\1')
+      page.gsub!(/\n([a-zA-Zľšťžýéčúřěáí\(\)])/, '\1')
       page.gsub!(/[0-9]Pizza/, "Pizza")
-      page.gsub!(/[0-9]?[0-9]{1,3}g /,'')
+      page.gsub!(/[0-9]?(\s){0,2}[0-9]{1,3}(\s)?g /,' ')
       
 
 

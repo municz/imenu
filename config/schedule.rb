@@ -23,8 +23,13 @@
 #  runner "MenuRestaurant.fetch_academic_menu"
 #end
 
-every 1.hour do
+every :wednesday, :at => "15:55pm" do
   runner "MenuRestaurant.fetch_academic_menu"
-  set :output, { :error => '/home/lucas03/Documnets/pv249/imenu/log/whenever.log', 
-    :standard => '/home/lucas03/Documnets/pv249/imenu/log/whenever.log' }
+  runner "MenuRestaurant.fetch_moravak_menu"
+  runner "MenuRestaurant.fetch_veveri_menu"
+  runner "MenuRestaurant.fetch_vinarska_menu"
+
+
+  set :output, { :error => 'log/whenever-error.log', 
+    :standard => 'log/whenever-standard.log' }
 end
