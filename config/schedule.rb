@@ -23,7 +23,7 @@
 #  runner "MenuRestaurant.fetch_academic_menu"
 #end
 
-every :wednesday, :at => "15:55pm" do
+every :friday, :at => "15:55pm" do
   runner "MenuRestaurant.fetch_academic_menu"
   runner "MenuRestaurant.fetch_moravak_menu"
   runner "MenuRestaurant.fetch_veveri_menu"

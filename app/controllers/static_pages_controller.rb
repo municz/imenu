@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     
     unless ( params['restaurant'].present? and params['date'].present?)
       params['restaurant'] = "1"
-      params['date'] = Date.today.to_s
+      params['date'] = current_business_date(Date.today).to_s
     end
 
     #@menus = Menu.all

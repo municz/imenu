@@ -24,7 +24,7 @@ class MenuRestaurant < ActiveRecord::Base
     restaurant = Restaurant.find_or_create_by_name(currentRestaurant)
 #=begin
     # get pdf from url
-    io     = open('http://www.skm.muni.cz/stravovani/texty/jidelnicek-ar-aktualni.cz.pdf')
+    io     = open('http://www.skm.muni.cz/stravovani/texty/jidelnicek-ar-pristi.cz.pdf')
     reader = PDF::Reader.new(io)
 
     #puts reader.page(1).text
@@ -83,7 +83,7 @@ class MenuRestaurant < ActiveRecord::Base
     restaurant = Restaurant.find_or_create_by_name(currentRestaurant)
 #=begin
     # get pdf from url
-    io     = open('http://www.skm.muni.cz/stravovani/texty/jidelnicek-moravske-aktualni.cz.pdf')
+    io     = open('http://www.skm.muni.cz/stravovani/texty/jidelnicek-moravske-pristi.cz.pdf')
     reader = PDF::Reader.new(io)
 
     #puts reader.page(1).text
@@ -142,7 +142,7 @@ class MenuRestaurant < ActiveRecord::Base
     restaurant = Restaurant.find_or_create_by_name(currentRestaurant)
 #=begin
     # get pdf from url
-    io     = open('http://www.skm.muni.cz/stravovani/texty/jidelnicek-veveri-aktualni.cz.pdf')
+    io     = open('http://www.skm.muni.cz/stravovani/texty/jidelnicek-veveri-pristi.cz.pdf')
     reader = PDF::Reader.new(io)
 
     #puts reader.page(1).text
@@ -200,7 +200,7 @@ class MenuRestaurant < ActiveRecord::Base
     restaurant = Restaurant.find_or_create_by_name(currentRestaurant)
 #=begin
     # get pdf from url
-    io     = open('http://www.skm.muni.cz/stravovani/texty/jidelnicek-vinarska-aktualni.cz.pdf')
+    io     = open('http://www.skm.muni.cz/stravovani/texty/jidelnicek-vinarska-pristi.cz.pdf')
     reader = PDF::Reader.new(io)
 
     #puts reader.page(1).text
