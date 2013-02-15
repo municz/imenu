@@ -1,9 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
-    
+        
     unless ( params['restaurant'].present? and params['date'].present?)
       params['restaurant'] = "1"
-      params['date'] = current_business_date(Date.today).to_s
+      
+      params['date'] = current_business_day(Date.today).to_s
     end
 
     #@menus = Menu.all
@@ -17,5 +18,12 @@ class StaticPagesController < ApplicationController
       format.json { render json: @restaurants }
       format.json { render json: @menuRestaurants }
     end
+  end
+
+  def current_business_day(date)
+    while (date.wday % 7 == 0) or (date.wday % 7 == 6) do
+     date += 1
+    end
+    date
   end
 end
